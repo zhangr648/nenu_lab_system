@@ -10,6 +10,7 @@
     <modules>
         <module>springcloud-api</module>
         <module>service-provider-test</module>
+        <module>service-consumer-test</module>
     </modules>
 
     <packaging>pom</packaging>

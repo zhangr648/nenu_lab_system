@@ -12,6 +12,6 @@ import java.io.Serializable;
 public class People implements Serializable {
     private Long id;
     private String name;
-    private int age;
+    private Integer age;
     private String phone;
 }
