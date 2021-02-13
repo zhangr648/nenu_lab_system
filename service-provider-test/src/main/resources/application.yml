@@ -1,0 +1,7 @@
+server:
+  port: 8001
+
+# spring
+spring:
+  application:
+    name: springcloud-provider-test
