@@ -11,6 +11,7 @@
         <module>springcloud-api</module>
         <module>service-provider-test</module>
         <module>service-consumer-test</module>
+        <module>eureka-server</module>
     </modules>
 
     <packaging>pom</packaging>
