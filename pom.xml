@@ -12,6 +12,8 @@
         <module>service-provider-test</module>
         <module>service-consumer-test</module>
         <module>eureka-server</module>
+        <module>eurkea-server-7002</module>
+        <module>eurkea-server-7003</module>
     </modules>
 
     <packaging>pom</packaging>
