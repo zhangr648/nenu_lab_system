@@ -5,3 +5,15 @@ server:
 spring:
   application:
     name: springcloud-provider-test
+
+# eureka
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:7001/eureka/
+  instance:
+    instance-id: service-provider-test
+
+# info
+info:
+  app.name: service-provider-test
