@@ -13,7 +13,7 @@ public class PeopleConsumerController {
     @Autowired
     private RestTemplate restTemplate;
 
-    private static final String PROVIDER_NAME = "SPRINGCLOUD-PROVIDER-TEST";
+    private static final String PROVIDER_NAME = "PROVIDER-TEST";
 
     @GetMapping("/consumer/people/{id}")
     public People getPeople(@PathVariable("id") Long id) {

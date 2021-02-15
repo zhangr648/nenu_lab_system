@@ -12,7 +12,7 @@ public class PeopleDao {
     }
 
     public People queryById(Long id) {
-        return new People().setId(id).setName("第一个提供者");
+        return new People().setId(id).setName("第二个提供者");
     }
 
     public List<People> queryAll() {
