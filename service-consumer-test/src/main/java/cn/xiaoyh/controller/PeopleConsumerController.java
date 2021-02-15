@@ -13,10 +13,10 @@ public class PeopleConsumerController {
     @Autowired
     private RestTemplate restTemplate;
 
-    private static final String PROVIDER_HOST = "http://localhost:8001";
+    private static final String PROVIDER_NAME = "SPRINGCLOUD-PROVIDER-TEST";
 
     @GetMapping("/consumer/people/{id}")
     public People getPeople(@PathVariable("id") Long id) {
-        return restTemplate.getForObject(PROVIDER_HOST + "/people/" + id, People.class);
+        return restTemplate.getForObject("http://" + PROVIDER_NAME + "/people/" + id, People.class);
     }
 }
