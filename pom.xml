@@ -16,6 +16,7 @@
         <module>eurkea-server-7003</module>
         <module>service-provider-test-8002</module>
         <module>service-provider-test-8003</module>
+        <module>feign-consumer-test</module>
     </modules>
 
     <packaging>pom</packaging>
