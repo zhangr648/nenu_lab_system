@@ -21,6 +21,7 @@
         <module>config-server</module>
         <module>config-client</module>
         <module>hystrix-server</module>
+        <module>hystrix_dashboard</module>
     </modules>
 
     <packaging>pom</packaging>
