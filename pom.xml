@@ -18,6 +18,8 @@
         <module>service-provider-test-8003</module>
         <module>feign-consumer-test</module>
         <module>zuul-server</module>
+        <module>config-server</module>
+        <module>config-client</module>
     </modules>
 
     <packaging>pom</packaging>

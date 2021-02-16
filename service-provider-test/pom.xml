@@ -12,6 +12,12 @@
     <artifactId>service-provider-test</artifactId>
 
     <dependencies>
+        <!-- Config -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-config</artifactId>
+            <version>2.1.1.RELEASE</version>
+        </dependency>
         <!-- Eureka -->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
