@@ -15,7 +15,6 @@
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-eureka</artifactId>
-            <version>1.4.6.RELEASE</version>
         </dependency>
         <!-- actuator -->
         <dependency>
@@ -26,7 +25,6 @@
         <dependency>
             <groupId>cn.xiaoyh</groupId>
             <artifactId>springcloud-api</artifactId>
-            <version>1.0-SNAPSHOT</version>
         </dependency>
         <!-- 日志、测试等 -->
         <dependency>
