@@ -25,10 +25,9 @@
     <packaging>pom</packaging>
 
     <properties>
-        <springcloud.version>Greenwich.SR6</springcloud.version>
-        <springboot.version>2.1.18.RELEASE</springboot.version>
+        <springcloud.version>Hoxton.SR10</springcloud.version>
+        <springboot.version>2.3.8.RELEASE</springboot.version>
         <springcloud.module.version>1.4.6.RELEASE</springcloud.module.version>
-        <config.starter.version>2.1.1.RELEASE</config.starter.version>
         <junit.version>4.12</junit.version>
         <log4j.version>1.2.17</log4j.version>
         <lombok.version>1.18.18</lombok.version>
