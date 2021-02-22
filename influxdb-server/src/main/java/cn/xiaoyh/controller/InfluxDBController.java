@@ -5,6 +5,7 @@ import cn.xiaoyh.pojo.Result;
 import cn.xiaoyh.pojo.SensorEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -17,7 +18,7 @@ public class InfluxDBController {
     }
 
     @PostMapping("/")
-    public Result test(SensorEntity data) {
+    public Result test(@RequestBody SensorEntity data) {
         if (influxDBDao.insertPoint(data)) return Result.OK;
 
         return Result.ERROR;

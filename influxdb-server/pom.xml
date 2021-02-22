@@ -12,11 +12,10 @@
     <artifactId>influxdb-server</artifactId>
 
     <dependencies>
-        <!-- influxdb-->
+        <!-- influxdb -->
         <dependency>
             <groupId>org.influxdb</groupId>
             <artifactId>influxdb-java</artifactId>
-            <version>2.21</version>
         </dependency>
         <!-- Eureka -->
         <dependency>
@@ -46,11 +45,6 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
-        <!-- Jetty -->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-jetty</artifactId>
         </dependency>
         <!-- 热部署工具 -->
         <dependency>
