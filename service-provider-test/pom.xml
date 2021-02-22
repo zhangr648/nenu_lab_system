@@ -37,20 +37,10 @@
             <groupId>cn.xiaoyh</groupId>
             <artifactId>springcloud-api</artifactId>
         </dependency>
-        <!-- 日志、测试等 -->
-        <dependency>
-            <groupId>ch.qos.logback</groupId>
-            <artifactId>logback-core</artifactId>
-        </dependency>
         <!-- junit -->
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-        </dependency>
-        <!-- log4j -->
-        <dependency>
-            <groupId>log4j</groupId>
-            <artifactId>log4j</artifactId>
         </dependency>
         <!-- springboot -->
         <dependency>
