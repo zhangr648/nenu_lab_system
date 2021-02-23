@@ -12,8 +12,6 @@
         <module>service-provider-test</module>
         <module>service-consumer-test</module>
         <module>eureka-server</module>
-        <module>eurkea-server-7002</module>
-        <module>eurkea-server-7003</module>
         <module>service-provider-test-8002</module>
         <module>feign-consumer-test</module>
         <module>zuul-server</module>
@@ -21,6 +19,7 @@
         <module>hystrix_dashboard</module>
         <module>influxdb-server</module>
         <module>websocket-server</module>
+        <module>springcloud-gateway</module>
     </modules>
 
     <packaging>pom</packaging>
@@ -65,18 +64,6 @@
             </dependency>
 
             <!-- Netflix 组件 -->
-            <!-- Eureka Server -->
-            <dependency>
-                <groupId>org.springframework.cloud</groupId>
-                <artifactId>spring-cloud-starter-eureka-server</artifactId>
-                <version>${netflix.module.version}</version>
-            </dependency>
-            <!-- Eureka -->
-            <dependency>
-                <groupId>org.springframework.cloud</groupId>
-                <artifactId>spring-cloud-starter-eureka</artifactId>
-                <version>${netflix.module.version}</version>
-            </dependency>
             <!-- Hystrix -->
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
@@ -95,19 +82,14 @@
                 <artifactId>spring-cloud-starter-ribbon</artifactId>
                 <version>${netflix.module.version}</version>
             </dependency>
-            <!-- zuul -->
-            <dependency>
-                <groupId>org.springframework.cloud</groupId>
-                <artifactId>spring-cloud-starter-zuul</artifactId>
-                <version>${netflix.module.version}</version>
-            </dependency>
 
-            <!-- 数据库 -->
+            <!-- MySQL -->
             <dependency>
                 <groupId>mysql</groupId>
                 <artifactId>mysql-connector-java</artifactId>
                 <version>${mysql.connector.version}</version>
             </dependency>
+            <!-- Druid 连接池 -->
             <dependency>
                 <groupId>com.alibaba</groupId>
                 <artifactId>druid</artifactId>
