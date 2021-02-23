@@ -1,7 +1,0 @@
-spring:
-  cloud:
-    config:
-      name: service-provider
-      profile: dev
-      label: master #分支名
-      uri: http://localhost:3344
