@@ -1,4 +1,4 @@
-package cn.xiaoyh.config;
+package cn.xiaoyh;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

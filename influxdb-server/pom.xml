@@ -12,6 +12,11 @@
     <artifactId>influxdb-server</artifactId>
 
     <dependencies>
+        <!-- 自己的模块 -->
+        <dependency>
+            <groupId>cn.xiaoyh</groupId>
+            <artifactId>springcloud-api</artifactId>
+        </dependency>
         <!-- influxdb -->
         <dependency>
             <groupId>org.influxdb</groupId>
@@ -22,7 +27,7 @@
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
         </dependency>
-        <!-- springboot -->
+        <!-- springboot web -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
