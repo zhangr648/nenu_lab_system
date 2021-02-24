@@ -8,7 +8,7 @@ import javax.websocket.server.ServerEndpoint;
 import java.util.concurrent.atomic.AtomicInteger;
 
 @Slf4j
-@ServerEndpoint("/test")
+@ServerEndpoint("/ws")
 @Component
 public class WebSocketServer {
 
