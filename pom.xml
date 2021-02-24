@@ -8,7 +8,7 @@
     <artifactId>nenu_lab_system</artifactId>
     <version>1.0-SNAPSHOT</version>
     <modules>
-        <module>springcloud-api</module>
+        <module>nenu-common-api</module>
         <module>service-provider-test</module>
         <module>service-consumer-test</module>
         <module>eureka-server</module>
@@ -27,13 +27,12 @@
     <properties>
         <springcloud.version>Hoxton.SR10</springcloud.version>
         <springboot.version>2.3.8.RELEASE</springboot.version>
-        <netflix.module.version>1.4.6.RELEASE</netflix.module.version>
-        <junit.version>4.12</junit.version>
-        <lombok.version>1.18.18</lombok.version>
         <mysql.connector.version>8.0.23</mysql.connector.version>
         <druid.version>1.2.4</druid.version>
-        <influxdb.version>2.21</influxdb.version>
         <mybatis.starter.version>1.3.2</mybatis.starter.version>
+        <influxdb.version>2.21</influxdb.version>
+        <junit.version>4.12</junit.version>
+        <lombok.version>1.18.18</lombok.version>
     </properties>
 
     <dependencyManagement>
@@ -41,7 +40,7 @@
             <!-- 自己写的模块 -->
             <dependency>
                 <groupId>cn.xiaoyh</groupId>
-                <artifactId>springcloud-api</artifactId>
+                <artifactId>nenu-common-api</artifactId>
                 <version>1.0-SNAPSHOT</version>
             </dependency>
 
@@ -61,26 +60,6 @@
                 <version>${springboot.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
-            </dependency>
-
-            <!-- Netflix 组件 -->
-            <!-- Hystrix -->
-            <dependency>
-                <groupId>org.springframework.cloud</groupId>
-                <artifactId>spring-cloud-starter-hystrix</artifactId>
-                <version>${netflix.module.version}</version>
-            </dependency>
-            <!-- Feign -->
-            <dependency>
-                <groupId>org.springframework.cloud</groupId>
-                <artifactId>spring-cloud-starter-feign</artifactId>
-                <version>${netflix.module.version}</version>
-            </dependency>
-            <!-- Ribbon -->
-            <dependency>
-                <groupId>org.springframework.cloud</groupId>
-                <artifactId>spring-cloud-starter-ribbon</artifactId>
-                <version>${netflix.module.version}</version>
             </dependency>
 
             <!-- MySQL -->

@@ -12,10 +12,10 @@
     <artifactId>influxdb-server</artifactId>
 
     <dependencies>
-        <!-- 自己的模块 -->
+        <!-- 自己写的模块 -->
         <dependency>
             <groupId>cn.xiaoyh</groupId>
-            <artifactId>springcloud-api</artifactId>
+            <artifactId>nenu-common-api</artifactId>
         </dependency>
         <!-- influxdb -->
         <dependency>
