@@ -1,7 +1,7 @@
-spring:
-  cloud:
-    config:
-      name: eureka-server
-      profile: dev
-      label: master #分支名
-      uri: http://localhost:3344
+#spring:
+#  cloud:
+#    config:
+#      name: eureka-server
+#      profile: dev
+#      label: master #分支名
+#      uri: http://localhost:3344
