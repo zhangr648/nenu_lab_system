@@ -10,8 +10,6 @@
     <modules>
         <module>nenu-common-api</module>
         <module>service-provider-test</module>
-        <module>eureka-server</module>
-        <module>service-provider-test-8002</module>
         <module>feign-consumer-test</module>
         <module>config-server</module>
         <module>hystrix_dashboard</module>
