@@ -12,10 +12,10 @@
     <artifactId>springcloud-gateway</artifactId>
 
     <dependencies>
-        <!-- Eureka Client -->
+        <!-- Consul -->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+            <artifactId>spring-cloud-starter-consul-discovery</artifactId>
         </dependency>
         <!-- SpringCloud Gateway -->
         <dependency>

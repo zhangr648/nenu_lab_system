@@ -21,8 +21,3 @@ spring:
           uri: lb:ws://websocket-server
           predicates:
             - Path=/ws/**
-
-eureka:
-  client:
-    service-url:
-      defaultZone: http://localhost:7000/eureka
