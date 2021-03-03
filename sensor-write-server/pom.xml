@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>influxdb-server</artifactId>
+    <artifactId>sensor-write-server</artifactId>
 
     <dependencies>
         <!-- 自己写的模块 -->
@@ -17,6 +17,7 @@
             <groupId>cn.xiaoyh</groupId>
             <artifactId>nenu-common-api</artifactId>
         </dependency>
+
         <!-- influxdb -->
         <dependency>
             <groupId>org.influxdb</groupId>
@@ -27,6 +28,22 @@
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-consul-discovery</artifactId>
         </dependency>
+        <!-- Hystrix -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-hystrix</artifactId>
+        </dependency>
+        <!-- actuator -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+        </dependency>
+        <!-- 自定义属性配置 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-configuration-processor</artifactId>
+            <optional>true</optional>
+        </dependency>
         <!-- springboot web -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -36,11 +53,6 @@
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-        </dependency>
-        <!-- 日志 -->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-logging</artifactId>
         </dependency>
     </dependencies>
 </project>

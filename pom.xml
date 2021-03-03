@@ -13,7 +13,7 @@
         <module>feign-consumer-test</module>
         <module>config-server</module>
         <module>hystrix_dashboard</module>
-        <module>influxdb-server</module>
+        <module>sensor-write-server</module>
         <module>websocket-server</module>
         <module>springcloud-gateway</module>
     </modules>
