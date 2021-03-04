@@ -10,7 +10,7 @@ public class XInfluxDbProperties {
     private String user;
     private String password;
     private String database;
-    private String retentionPolicy = "autogen";
+    private String retentionPolicy;
     private Batch batch = new Batch();
 
     @Data
