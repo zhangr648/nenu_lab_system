@@ -18,11 +18,6 @@
             <artifactId>nenu-common-api</artifactId>
         </dependency>
 
-        <!-- influxdb -->
-        <dependency>
-            <groupId>org.influxdb</groupId>
-            <artifactId>influxdb-java</artifactId>
-        </dependency>
         <!-- Consul -->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
@@ -37,12 +32,6 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-actuator</artifactId>
-        </dependency>
-        <!-- 自定义属性配置 -->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-configuration-processor</artifactId>
-            <optional>true</optional>
         </dependency>
         <!-- springboot web -->
         <dependency>
