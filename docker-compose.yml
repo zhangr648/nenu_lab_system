@@ -1,0 +1,65 @@
+version: '3.0'
+
+services:
+  consul1:
+    image: consul
+    container_name: consul1
+    restart: always
+    command: agent -server -bootstrap-expect=3 -node=consul1 -bind=0.0.0.0 -client=0.0.0.0 -datacenter=dc1
+    networks:
+      - mynet
+
+  consul2:
+    image: consul
+    container_name: consul2
+    command: agent -server -retry-join=consul1 -node=consul2 -bind=0.0.0.0 -client=0.0.0.0 -datacenter=dc1
+    restart: always
+    depends_on:
+      - consul1
+    networks:
+      - mynet
+
+  consul3:
+    image: consul
+    container_name: consul3
+    command: agent -server -retry-join=consul1 -node=consul3 -bind=0.0.0.0 -client=0.0.0.0 -datacenter=dc1
+    restart: always
+    depends_on:
+      - consul1
+    networks:
+      - mynet
+
+  consul4:
+    image: consul
+    container_name: consul4
+    command: agent -retry-join=consul1 -node=consul4 -bind=0.0.0.0 -client=0.0.0.0 -datacenter=dc1 -ui
+    restart: always
+    ports:
+      - 8500:8500
+    depends_on:
+      - consul2
+      - consul3
+    networks:
+      - mynet
+
+  sensor-write:
+    image: xiaoyh/sensor-write-server
+    container_name: sw-node
+    depends_on:
+      - consul4
+    networks:
+      - mynet
+
+  nenu-api-gateway:
+    image: xiaoyh/nenu-api-gateway
+    container_name: api-gateway
+    ports:
+      - 80:80
+    depends_on:
+      - sensor-write
+    networks:
+      - mynet
+
+networks:
+  mynet:
+    name: mynet
