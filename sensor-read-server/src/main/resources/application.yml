@@ -1,0 +1,15 @@
+server:
+  port: 8100
+
+spring:
+  application:
+    name: sensor-read-server
+  influx:
+    url: http://10.227.89.85:8086
+    database: nenu_labs
+  cloud:
+    consul:
+      host: 10.227.89.85
+      port: 8500
+      discovery:
+        service-name: sensor-read-server
