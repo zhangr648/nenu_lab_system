@@ -11,6 +11,7 @@ spring:
       discovery:
         prefer-ip-address: true
         service-name: nenu-api-gateway
+        instance-id: ${spring.application.name}-${spring.cloud.client.ip-address}-${server.port}
     gateway:
       discovery:
         locator:

@@ -12,4 +12,6 @@ spring:
       host: 10.227.89.85
       port: 8500
       discovery:
+        prefer-ip-address: true
         service-name: sensor-read-server
+        instance-id: ${spring.application.name}-${spring.cloud.client.ip-address}-${server.port}
