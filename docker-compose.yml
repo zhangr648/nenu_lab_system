@@ -43,8 +43,7 @@ services:
       - mynet
 
   sensor-write:
-    image: xiaoyh/sensor-write-server
-    container_name: sw-node
+    image: xiaoyh/sensor-write
     depends_on:
       - consul4
     networks:
