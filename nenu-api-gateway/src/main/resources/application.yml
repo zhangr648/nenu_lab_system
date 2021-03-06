@@ -1,0 +1,33 @@
+server:
+  port: 80
+
+spring:
+  application:
+    name: nenu-api-gateway
+  cloud:
+    consul:
+      host: 10.227.89.85
+      port: 8500
+      discovery:
+        prefer-ip-address: true
+        service-name: nenu-api-gateway
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+          lower-case-service-id: true
+      routes:
+        - id: sensor-write-route
+          uri: lb://sensor-write-server
+          predicates:
+            - Path=/sensor/write/**
+        - id: sensor-read-route
+          uri: lb://sensor-read-server
+          predicates:
+            - Path=/sensor/read/**
+          filters:
+            - StripPrefix=2
+        - id: websocket-route
+          uri: lb:ws://websocket-server
+          predicates:
+            - Path=/ws/**
