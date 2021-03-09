@@ -1,6 +1,26 @@
 version: '3.0'
 
 services:
+  influxdb:
+    container_name: influxdb
+    image: influxdb:1.8.4
+    restart: always
+    volumes:
+      - influxdb:/var/lib/influxdb
+    ports:
+      - 8086:8086
+    networks:
+      - mynet
+
+  grafana:
+    container_name: grafana
+    image: grafana/grafana
+    restart: always
+    ports:
+      - 3000:3000
+    networks:
+      - mynet
+
   consul1:
     image: consul
     container_name: consul1
@@ -43,22 +63,35 @@ services:
       - mynet
 
   sensor-write:
-    image: xiaoyh/sensor-write
+    image: xiaoyh363/sensor-write
+    restart: always
+    depends_on:
+      - consul4
+    networks:
+      - mynet
+
+  sensor-read:
+    image: xiaoyh363/sensor-read
+    restart: always
     depends_on:
       - consul4
     networks:
       - mynet
 
   nenu-api-gateway:
-    image: xiaoyh/nenu-api-gateway
+    image: xiaoyh363/nenu-gateway
+    restart: always
     container_name: api-gateway
     ports:
       - 80:80
     depends_on:
-      - sensor-write
+      - consul4
     networks:
       - mynet
 
 networks:
   mynet:
     name: mynet
+
+volumes:
+  influxdb:

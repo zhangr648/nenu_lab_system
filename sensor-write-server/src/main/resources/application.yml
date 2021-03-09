@@ -5,7 +5,7 @@ spring:
   application:
     name: sensor-write-server
   influx:
-    url: http://10.227.89.85:8086
+    url: http://influxdb:8086
     database: nenu_labs
     batch:
       enable: true
