@@ -6,7 +6,7 @@ spring:
     name: nenu-api-gateway
   cloud:
     consul:
-      host: 10.227.89.85
+      host: ${CONSUL_SERVER_ADDRESS}
       port: 8500
       discovery:
         prefer-ip-address: true

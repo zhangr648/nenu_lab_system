@@ -5,14 +5,14 @@ spring:
   application:
     name: sensor-write-server
   influx:
-    url: http://influxdb:8086
+    url: http://${INFLUXDB_SERVER_ADDRESS}:8086
     database: nenu_labs
     batch:
       enable: true
       jitter-duration: 500
   cloud:
     consul:
-      host: 10.227.89.85
+      host: ${CONSUL_SERVER_ADDRESS}
       port: 8500
       discovery:
         prefer-ip-address: true

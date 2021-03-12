@@ -1,10 +1,8 @@
-version: '3.0'
+version: '3.4'
 
 services:
   influxdb:
-    container_name: influxdb
     image: influxdb:1.8.4
-    restart: always
     volumes:
       - influxdb:/var/lib/influxdb
     ports:
@@ -13,9 +11,7 @@ services:
       - mynet
 
   grafana:
-    container_name: grafana
     image: grafana/grafana
-    restart: always
     ports:
       - 3000:3000
     networks:
@@ -23,17 +19,13 @@ services:
 
   consul1:
     image: consul
-    container_name: consul1
-    restart: always
     command: agent -server -bootstrap-expect=3 -node=consul1 -bind=0.0.0.0 -client=0.0.0.0 -datacenter=dc1
     networks:
       - mynet
 
   consul2:
     image: consul
-    container_name: consul2
     command: agent -server -retry-join=consul1 -node=consul2 -bind=0.0.0.0 -client=0.0.0.0 -datacenter=dc1
-    restart: always
     depends_on:
       - consul1
     networks:
@@ -41,19 +33,15 @@ services:
 
   consul3:
     image: consul
-    container_name: consul3
     command: agent -server -retry-join=consul1 -node=consul3 -bind=0.0.0.0 -client=0.0.0.0 -datacenter=dc1
-    restart: always
     depends_on:
       - consul1
     networks:
       - mynet
 
-  consul4:
+  consul_agent:
     image: consul
-    container_name: consul4
     command: agent -retry-join=consul1 -node=consul4 -bind=0.0.0.0 -client=0.0.0.0 -datacenter=dc1 -ui
-    restart: always
     ports:
       - 8500:8500
     depends_on:
@@ -64,34 +52,39 @@ services:
 
   sensor-write:
     image: xiaoyh363/sensor-write
-    restart: always
+    environment:
+      - CONSUL_SERVER_ADDRESS=consul_agent
+      - INFLUXDB_SERVER_ADDRESS=influxdb
     depends_on:
-      - consul4
+      - consul_agent
+    deploy:
+      replicas: 3
     networks:
       - mynet
 
   sensor-read:
     image: xiaoyh363/sensor-read
-    restart: always
+    environment:
+      - CONSUL_SERVER_ADDRESS=consul_agent
+      - INFLUXDB_SERVER_ADDRESS=influxdb
     depends_on:
-      - consul4
+      - consul_agent
     networks:
       - mynet
 
-  nenu-api-gateway:
+  nenu-gateway:
     image: xiaoyh363/nenu-gateway
-    restart: always
-    container_name: api-gateway
+    environment:
+      - CONSUL_SERVER_ADDRESS=consul_agent
     ports:
       - 80:80
     depends_on:
-      - consul4
+      - consul_agent
     networks:
       - mynet
 
 networks:
   mynet:
-    name: mynet
 
 volumes:
   influxdb:
