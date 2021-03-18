@@ -1,0 +1,45 @@
+version: '3.4'
+
+services:
+  influxdb:
+    image: influxdb:1.8.4
+    volumes:
+      - influxdb:/var/lib/influxdb
+    networks:
+      - nenu-overlay
+
+  sensor-write:
+    image: xiaoyh363/sensor-write
+    environment:
+      - CONSUL_SERVER_ADDRESS=consul
+      - INFLUXDB_SERVER_ADDRESS=influxdb
+    deploy:
+      replicas: 3
+    networks:
+      - nenu-overlay
+
+  sensor-read:
+    image: xiaoyh363/sensor-read
+    environment:
+      - CONSUL_SERVER_ADDRESS=consul
+      - INFLUXDB_SERVER_ADDRESS=influxdb
+    networks:
+      - nenu-overlay
+
+  nenu-gateway:
+    image: xiaoyh363/nenu-gateway
+    environment:
+      - CONSUL_SERVER_ADDRESS=consul
+    ports:
+      - target: 80
+        published: 80
+        mode: host
+    networks:
+      - nenu-overlay
+
+networks:
+  nenu-overlay:
+    external: true
+
+volumes:
+  influxdb:

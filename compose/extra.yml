@@ -1,0 +1,13 @@
+version: '3.4'
+
+services:
+  grafana:
+    image: grafana/grafana
+    ports:
+      - 3000:3000
+    networks:
+      - nenu-overlay
+
+networks:
+  nenu-overlay:
+    external: true
