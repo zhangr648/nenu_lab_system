@@ -26,17 +26,6 @@ services:
     networks:
       - nenu-overlay
 
-  nenu-gateway:
-    image: xiaoyh363/nenu-gateway
-    environment:
-      - CONSUL_SERVER_ADDRESS=consul
-    ports:
-      - target: 80
-        published: 80
-        mode: host
-    networks:
-      - nenu-overlay
-
 networks:
   nenu-overlay:
     external: true
