@@ -31,12 +31,12 @@ public class SensorWriteController {
         log.info("receive SensorWriteReq {}", req);
 
         sensorWriteDao.insertSensorPoint(req.getLab(), req.getSensors(), req.getTime());
-        return Result.OK;
+        return Result.ok();
     }
 
     @SuppressWarnings("unused")
     private Result hystrixInsertSensorPoint(@RequestBody SensorWriteReq req, Throwable throwable) {
         log.error("insert error", throwable);
-        return Result.ERROR;
+        return Result.error();
     }
 }

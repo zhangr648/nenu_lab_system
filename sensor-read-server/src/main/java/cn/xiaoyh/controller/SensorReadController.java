@@ -17,11 +17,11 @@ public class SensorReadController {
 
     @GetMapping("/last/lab/{lab}/minute/{minute}")
     public Result realQueryByLastMinute(@PathVariable("lab") String lab, @PathVariable("minute") int minute) {
-        return Result.success(sensorReadService.queryLastByMinute(lab, minute));
+        return Result.ok().data("data", sensorReadService.queryLastByMinute(lab, minute));
     }
 
     @GetMapping("/last/lab/{lab}/hour/{hour}")
     public Result realQueryByLastHour(@PathVariable("lab") String lab, @PathVariable("hour") int hour) {
-        return Result.success(sensorReadService.queryLastByHour(lab, hour));
+        return Result.ok().data("data", sensorReadService.queryLastByHour(lab, hour));
     }
 }
