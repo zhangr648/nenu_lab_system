@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>sensor-read-server</artifactId>
+    <artifactId>sensor-read</artifactId>
 
     <dependencies>
         <!-- 自己写的模块 -->

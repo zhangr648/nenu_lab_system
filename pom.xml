@@ -9,8 +9,8 @@
     <version>1.0-SNAPSHOT</version>
     <modules>
         <module>nenu-common-api</module>
-        <module>sensor-write-server</module>
-        <module>sensor-read-server</module>
+        <module>sensor-write</module>
+        <module>sensor-read</module>
         <module>websocket-server</module>
         <module>nenu-api-gateway</module>
         <module>service-provider-test</module>
