@@ -16,7 +16,6 @@
         <module>service-provider-test</module>
         <module>feign-consumer-test</module>
         <module>config-server</module>
-        <module>hystrix_dashboard</module>
         <module>nenu-user</module>
     </modules>
 
@@ -33,6 +32,8 @@
         <junit.version>4.12</junit.version>
         <lombok.version>1.18.18</lombok.version>
         <jib.version>2.8.0</jib.version>
+        <mybatisplus.version>3.4.2</mybatisplus.version>
+        <velocity.version>2.3</velocity.version>
     </properties>
 
     <dependencyManagement>
@@ -100,6 +101,21 @@
                 <artifactId>lombok</artifactId>
                 <version>${lombok.version}</version>
             </dependency>
+
+            <!-- 愚蠢企鹅加的 -->
+            <!--mybatis-plus-->
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-boot-starter</artifactId>
+                <version>${mybatisplus.version}</version>
+            </dependency>
+            <!-- velocity 模板引擎, Mybatis Plus 代码生成器需要 -->
+            <dependency>
+                <groupId>org.apache.velocity</groupId>
+                <artifactId>velocity-engine-core</artifactId>
+                <version>${velocity.version}</version>
+            </dependency>
+
         </dependencies>
     </dependencyManagement>
 
