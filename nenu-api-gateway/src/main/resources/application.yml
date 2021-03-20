@@ -19,11 +19,11 @@ spring:
           lower-case-service-id: true
       routes:
         - id: sensor-write-route
-          uri: lb://sensor-write-server
+          uri: lb://sensor-write
           predicates:
             - Path=/sensor/write/**
         - id: sensor-read-route
-          uri: lb://sensor-read-server
+          uri: lb://sensor-read
           predicates:
             - Path=/sensor/read/**
           filters:
