@@ -17,6 +17,7 @@
         <module>feign-consumer-test</module>
         <module>config-server</module>
         <module>hystrix_dashboard</module>
+        <module>nenu-user</module>
     </modules>
 
     <packaging>pom</packaging>
