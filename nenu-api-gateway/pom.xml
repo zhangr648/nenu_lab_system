@@ -39,11 +39,9 @@
                 <groupId>com.google.cloud.tools</groupId>
                 <artifactId>jib-maven-plugin</artifactId>
                 <configuration>
-                    <from>
-                        <image>openjdk:8-jdk-alpine</image>
-                    </from>
                     <to>
-                        <image>registry.hub.docker.com/xiaoyh363/nenu-gateway</image>
+                        <!-- 部署到私服中 -->
+                        <image>${docker.private.host}/xiaoyh363/nenu-gateway</image>
                     </to>
                 </configuration>
             </plugin>
