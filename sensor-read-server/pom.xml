@@ -17,6 +17,10 @@
             <groupId>cn.xiaoyh</groupId>
             <artifactId>nenu-common-api</artifactId>
         </dependency>
+        <dependency>
+            <groupId>cn.xiaoyh</groupId>
+            <artifactId>influxdb-common</artifactId>
+        </dependency>
 
         <!-- Consul -->
         <dependency>
