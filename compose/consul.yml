@@ -1,0 +1,40 @@
+version: '3.4'
+
+services:
+  bootstrap:
+    image: consul:1.9.4
+    command: agent -server -bootstrap-expect=3 -bind='{{ GetInterfaceIP "eth0" }}' -client=0.0.0.0
+    networks:
+      - nenu-overlay
+
+  server:
+    image: consul:1.9.4
+    depends_on:
+      - bootstrap
+    command: agent -server -retry-join=bootstrap -bind='{{ GetInterfaceIP "eth0" }}' -client=0.0.0.0
+    deploy:
+      replicas: 2
+    networks:
+      - nenu-overlay
+
+  client:
+    image: consul:1.9.4
+    depends_on:
+      - bootstrap
+    command: agent -retry-join=bootstrap -bind='{{ GetInterfaceIP "eth0" }}' -client=0.0.0.0 -ui
+    ports:
+      - target: 8500
+        published: 8500
+        mode: host
+    deploy:
+      mode: global
+      placement:
+        constraints: [ node.role ==  manager ]
+    networks:
+      nenu-overlay:
+        aliases:
+          - consul
+
+networks:
+  nenu-overlay:
+    external: true

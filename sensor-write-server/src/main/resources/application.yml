@@ -1,0 +1,20 @@
+server:
+  port: 8000
+
+spring:
+  application:
+    name: sensor-write-server
+  influx:
+    url: http://${INFLUXDB_SERVER_ADDRESS}:8086
+    database: nenu_labs
+    batch:
+      enable: true
+      jitter-duration: 500
+  cloud:
+    consul:
+      host: ${CONSUL_SERVER_ADDRESS}
+      port: 8500
+      discovery:
+        prefer-ip-address: true
+        service-name: sensor-write-server
+        instance-id: ${spring.application.name}-${spring.cloud.client.ip-address}-${server.port}

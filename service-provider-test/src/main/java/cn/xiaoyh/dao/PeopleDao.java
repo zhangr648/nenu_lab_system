@@ -1,25 +1,23 @@
 package cn.xiaoyh.dao;
 
 import cn.xiaoyh.pojo.People;
+import org.apache.ibatis.annotations.Insert;
+import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Select;
+import org.springframework.stereotype.Repository;
 
-import java.util.ArrayList;
 import java.util.List;
 
-public class PeopleDao {
+@Mapper
+@Repository
+public interface PeopleDao {
 
-    public boolean insertPeople(People people) {
-        return true;
-    }
+    @Insert("insert into nenu_people (age, name, phone) values (#{age}, #{name}, #{phone})")
+    boolean insertPeople(People people);
 
-    public People queryById(Long id) {
-        return new People().setId(id).setName("第一个提供者");
-    }
+    @Select("select * from nenu_people where id=#{id}")
+    People queryById(Long id);
 
-    public List<People> queryAll() {
-        return new ArrayList<People>() {{
-            for (int i = 0; i < 5; i++) {
-                add(new People());
-            }
-        }};
-    }
+    @Select("select * from nenu_people")
+    List<People> queryAll();
 }

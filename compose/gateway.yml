@@ -1,0 +1,37 @@
+version: '3.4'
+
+services:
+  emqx:
+    image: emqx/emqx:v4.0.9
+    ports:
+      - target: 1883
+        published: 1883
+        mode: host
+      - target: 18083
+        published: 18083
+        mode: host
+    deploy:
+      mode: global
+      placement:
+        constraints: [ node.role ==  manager ]
+    networks:
+      - nenu-overlay
+
+  nenu-gateway:
+    image: xiaoyh363/nenu-gateway
+    environment:
+      - CONSUL_SERVER_ADDRESS=consul
+    ports:
+      - target: 80
+        published: 80
+        mode: host
+    deploy:
+      mode: global
+      placement:
+        constraints: [ node.role ==  manager ]
+    networks:
+      - nenu-overlay
+
+networks:
+  nenu-overlay:
+    external: true

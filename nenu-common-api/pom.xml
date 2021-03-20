@@ -12,6 +12,11 @@
     <artifactId>nenu-common-api</artifactId>
 
     <dependencies>
+        <!-- influxdb -->
+        <dependency>
+            <groupId>org.influxdb</groupId>
+            <artifactId>influxdb-java</artifactId>
+        </dependency>
         <!-- Hystrix -->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
@@ -21,6 +26,12 @@
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-openfeign</artifactId>
+        </dependency>
+        <!-- 自定义属性配置 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-configuration-processor</artifactId>
+            <optional>true</optional>
         </dependency>
         <!-- lombok -->
         <dependency>
