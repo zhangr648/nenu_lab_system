@@ -46,7 +46,7 @@ public class CodeGenerator {
         gc.setFileOverride(true);           // 是否覆盖已有文件
         gc.setOpen(false);                  // 生成后是否打开资源管理器
         gc.setServiceName("%sService");	    // 去掉Service接口的首字母I
-        gc.setIdType(IdType.ID_WORKER);     // 主键策略
+        gc.setIdType(IdType.ASSIGN_ID);     // 主键策略
         gc.setDateType(DateType.ONLY_DATE); // 定义生成的实体类中日期类型
         mpg.setGlobalConfig(gc);
 
@@ -67,7 +67,8 @@ public class CodeGenerator {
 
         // 5、策略配置
         StrategyConfig strategy = new StrategyConfig();
-        strategy.setInclude("nenu_people");                     // 设置数据库表名，多表用逗号隔开
+        // 设置数据库表名，不写为所有表都生成
+        //strategy.setInclude("nenu_user", "nenu_role");
         strategy.setNaming(NamingStrategy.underline_to_camel);  // 数据库表映射到实体的命名策略
         strategy.setTablePrefix(pc.getModuleName() + "_");      // 生成实体时去掉表前缀
 
