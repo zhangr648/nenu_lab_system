@@ -10,9 +10,29 @@ import com.baomidou.mybatisplus.generator.config.StrategyConfig;
 import com.baomidou.mybatisplus.generator.config.rules.DateType;
 import com.baomidou.mybatisplus.generator.config.rules.NamingStrategy;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.ActiveProfiles;
+import org.springframework.test.context.junit4.SpringRunner;
 
 
+@RunWith(SpringRunner.class)
+@SpringBootTest
+@ActiveProfiles("dev")
 public class CodeGenerator {
+
+    @Value("${spring.datasource.driver-class-name}")
+    private String driveName;
+
+    @Value("${spring.datasource.url}")
+    private String url;
+
+    @Value("${spring.datasource.username}")
+    private String username;
+
+    @Value("${spring.datasource.password}")
+    private String password;
 
     @Test
     public void run() {
@@ -21,48 +41,42 @@ public class CodeGenerator {
 
         // 2、全局配置
         GlobalConfig gc = new GlobalConfig();
-        String projectPath = System.getProperty("user.dir");
-
-        gc.setOutputDir(projectPath + "/src/main/java");
+        gc.setOutputDir(System.getProperty("user.dir") + "/src/main/java");
         gc.setAuthor("xiaoyh");
-        gc.setOpen(false); //生成后是否打开资源管理器
-        gc.setServiceName("%sService");	//去掉Service接口的首字母I
-        gc.setIdType(IdType.ID_WORKER); //主键策略
-        gc.setDateType(DateType.ONLY_DATE);//定义生成的实体类中日期类型
-
+        gc.setFileOverride(true);           // 是否覆盖已有文件
+        gc.setOpen(false);                  // 生成后是否打开资源管理器
+        gc.setServiceName("%sService");	    // 去掉Service接口的首字母I
+        gc.setIdType(IdType.ID_WORKER);     // 主键策略
+        gc.setDateType(DateType.ONLY_DATE); // 定义生成的实体类中日期类型
         mpg.setGlobalConfig(gc);
 
         // 3、数据源配置
         DataSourceConfig dsc = new DataSourceConfig();
-        dsc.setUrl("jdbc:mysql://192.168.1.10:3306/test?useUnicode=true&characterEncoding=utf-8");
-        dsc.setDriverName("com.mysql.cj.jdbc.Driver");
-        dsc.setUsername("root");
-        dsc.setPassword("123456");
+        dsc.setDriverName(driveName);
+        dsc.setUrl(url);
+        dsc.setUsername(username);
+        dsc.setPassword(password);
         dsc.setDbType(DbType.MYSQL);
         mpg.setDataSource(dsc);
 
         // 4、包配置
         PackageConfig pc = new PackageConfig();
-
         pc.setParent("cn.xiaoyh");
         pc.setModuleName("nenu");
-        pc.setController("controller");
-        pc.setEntity("entity");
-        pc.setService("service");
-        pc.setMapper("mapper");
         mpg.setPackageInfo(pc);
 
         // 5、策略配置
         StrategyConfig strategy = new StrategyConfig();
-        strategy.setInclude("nenu_people");
-        strategy.setNaming(NamingStrategy.underline_to_camel);//数据库表映射到实体的命名策略
-        strategy.setTablePrefix(pc.getModuleName() + "_"); //生成实体时去掉表前缀
+        strategy.setInclude("nenu_people");                     // 设置数据库表名，多表用逗号隔开
+        strategy.setNaming(NamingStrategy.underline_to_camel);  // 数据库表映射到实体的命名策略
+        strategy.setTablePrefix(pc.getModuleName() + "_");      // 生成实体时去掉表前缀
 
-        strategy.setColumnNaming(NamingStrategy.underline_to_camel);//数据库表字段映射到实体的命名策略
-        strategy.setEntityLombokModel(true); // lombok 模型 @Accessors(chain = true) setter链式操作
+        strategy.setColumnNaming(NamingStrategy.underline_to_camel);    //数据库表字段映射到实体的命名策略
+        strategy.setEntityLombokModel(true);    // lombok 模型
+        strategy.setChainModel(true);           // @Accessors(chain = true) setter链式操作
 
-        strategy.setRestControllerStyle(true); //restful api风格控制器
-        strategy.setControllerMappingHyphenStyle(true); //url中驼峰转连字符
+        strategy.setRestControllerStyle(true);          // Restful api 风格控制器
+        strategy.setControllerMappingHyphenStyle(true); // url中驼峰转连字符
 
         mpg.setStrategy(strategy);
 

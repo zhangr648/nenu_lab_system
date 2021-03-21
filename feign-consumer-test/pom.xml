@@ -15,7 +15,7 @@
         <!-- 自己写的模块 -->
         <dependency>
             <groupId>cn.xiaoyh</groupId>
-            <artifactId>nenu-common-api</artifactId>
+            <artifactId>nenu-common</artifactId>
         </dependency>
         <!-- Feign -->
         <dependency>

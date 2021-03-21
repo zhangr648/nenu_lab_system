@@ -8,22 +8,25 @@
     <artifactId>nenu_lab_system</artifactId>
     <version>1.0-SNAPSHOT</version>
     <modules>
-        <module>nenu-common-api</module>
-        <module>sensor-write-server</module>
-        <module>sensor-read-server</module>
-        <module>websocket-server</module>
+        <module>nenu-common</module>
+        <module>influxdb-common</module>
+
+        <module>nenu-user</module>
+        <module>sensor-write</module>
+        <module>sensor-read</module>
+
         <module>nenu-api-gateway</module>
+
+        <module>websocket-server</module>
         <module>service-provider-test</module>
         <module>feign-consumer-test</module>
-        <module>config-server</module>
-        <module>nenu-user</module>
-        <module>influxdb-common</module>
     </modules>
 
     <packaging>pom</packaging>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <docker.host>192.168.1.10:5000</docker.host>
         <springcloud.version>Hoxton.SR10</springcloud.version>
         <springboot.version>2.3.8.RELEASE</springboot.version>
         <mysql.connector.version>8.0.23</mysql.connector.version>
@@ -42,7 +45,7 @@
             <!-- 自己写的模块 -->
             <dependency>
                 <groupId>cn.xiaoyh</groupId>
-                <artifactId>nenu-common-api</artifactId>
+                <artifactId>nenu-common</artifactId>
                 <version>1.0-SNAPSHOT</version>
             </dependency>
             <dependency>
@@ -157,6 +160,18 @@
                             </goals>
                         </execution>
                     </executions>
+                    <configuration>
+                        <from>
+                            <image>openjdk:8-jdk-alpine</image>
+                        </from>
+                        <container>
+                            <environment>
+                                <spring.profiles.active>prod</spring.profiles.active>
+                            </environment>
+                            <creationTime>USE_CURRENT_TIMESTAMP</creationTime>
+                        </container>
+                        <allowInsecureRegistries>true</allowInsecureRegistries>
+                    </configuration>
                 </plugin>
             </plugins>
         </pluginManagement>

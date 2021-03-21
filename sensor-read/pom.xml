@@ -9,13 +9,13 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>sensor-write-server</artifactId>
+    <artifactId>sensor-read</artifactId>
 
     <dependencies>
         <!-- 自己写的模块 -->
         <dependency>
             <groupId>cn.xiaoyh</groupId>
-            <artifactId>nenu-common-api</artifactId>
+            <artifactId>nenu-common</artifactId>
         </dependency>
         <dependency>
             <groupId>cn.xiaoyh</groupId>
@@ -59,11 +59,8 @@
                 <groupId>com.google.cloud.tools</groupId>
                 <artifactId>jib-maven-plugin</artifactId>
                 <configuration>
-                    <from>
-                        <image>openjdk:8-jdk-alpine</image>
-                    </from>
                     <to>
-                        <image>registry.hub.docker.com/xiaoyh363/sensor-write</image>
+                        <image>${docker.host}/xiaoyh363/sensor-read</image>
                     </to>
                 </configuration>
             </plugin>

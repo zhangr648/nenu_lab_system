@@ -1,0 +1,38 @@
+# 通用配置
+server:
+  port: 8084
+
+spring:
+  application:
+    name: sensor-read
+  influx:
+    database: nenu_labs
+  profiles:
+    active: dev
+
+---
+# 开发环境
+
+spring:
+  profiles: dev
+  influx:
+    url: http://localhost:8086
+  cloud:
+    consul:
+      enabled: false
+
+---
+# 生产环境
+
+spring:
+  profiles: prod
+  influx:
+    url: http://${INFLUXDB_SERVER_ADDRESS}:8086
+  cloud:
+    consul:
+      host: ${CONSUL_SERVER_ADDRESS}
+      port: 8500
+      discovery:
+        prefer-ip-address: true
+        service-name: ${spring.application.name}
+        instance-id: ${spring.application.name}-${spring.cloud.client.ip-address}-${server.port}
