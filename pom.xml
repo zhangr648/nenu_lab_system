@@ -14,9 +14,10 @@
         <module>nenu-user</module>
         <module>sensor-write</module>
         <module>sensor-read</module>
-        <module>websocket-server</module>
 
         <module>nenu-api-gateway</module>
+
+        <module>websocket-server</module>
         <module>service-provider-test</module>
         <module>feign-consumer-test</module>
     </modules>
