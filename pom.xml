@@ -8,16 +8,17 @@
     <artifactId>nenu_lab_system</artifactId>
     <version>1.0-SNAPSHOT</version>
     <modules>
-        <module>nenu-common-api</module>
+        <module>nenu-common</module>
+        <module>influxdb-common</module>
+
+        <module>nenu-user</module>
         <module>sensor-write</module>
         <module>sensor-read</module>
         <module>websocket-server</module>
+
         <module>nenu-api-gateway</module>
         <module>service-provider-test</module>
         <module>feign-consumer-test</module>
-        <module>config-server</module>
-        <module>nenu-user</module>
-        <module>influxdb-common</module>
     </modules>
 
     <packaging>pom</packaging>
@@ -43,7 +44,7 @@
             <!-- 自己写的模块 -->
             <dependency>
                 <groupId>cn.xiaoyh</groupId>
-                <artifactId>nenu-common-api</artifactId>
+                <artifactId>nenu-common</artifactId>
                 <version>1.0-SNAPSHOT</version>
             </dependency>
             <dependency>
