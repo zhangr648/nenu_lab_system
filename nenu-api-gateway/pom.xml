@@ -40,8 +40,7 @@
                 <artifactId>jib-maven-plugin</artifactId>
                 <configuration>
                     <to>
-                        <!-- 部署到私服中 -->
-                        <image>${docker.private.host}/xiaoyh363/nenu-gateway</image>
+                        <image>${docker.host}/nenu-gateway</image>
                     </to>
                 </configuration>
             </plugin>

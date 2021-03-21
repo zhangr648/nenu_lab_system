@@ -24,7 +24,7 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <docker.private.host>192.168.1.10:5000</docker.private.host>
+        <docker.host>192.168.1.10:5000</docker.host>
         <springcloud.version>Hoxton.SR10</springcloud.version>
         <springboot.version>2.3.8.RELEASE</springboot.version>
         <mysql.connector.version>8.0.23</mysql.connector.version>

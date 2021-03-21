@@ -60,8 +60,7 @@
                 <artifactId>jib-maven-plugin</artifactId>
                 <configuration>
                     <to>
-                        <!-- 部署到私服中 -->
-                        <image>${docker.private.host}/xiaoyh363/sensor-read</image>
+                        <image>${docker.host}/xiaoyh363/sensor-read</image>
                     </to>
                 </configuration>
             </plugin>
