@@ -37,5 +37,5 @@ spring:
       port: 8500
       discovery:
         prefer-ip-address: true
-        service-name: sensor-write-server
+        service-name: ${spring.application.name}
         instance-id: ${spring.application.name}-${spring.cloud.client.ip-address}-${server.port}
