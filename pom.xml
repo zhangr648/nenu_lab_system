@@ -18,8 +18,6 @@
         <module>nenu-api-gateway</module>
 
         <module>websocket-server</module>
-        <module>service-provider-test</module>
-        <module>feign-consumer-test</module>
     </modules>
 
     <packaging>pom</packaging>
