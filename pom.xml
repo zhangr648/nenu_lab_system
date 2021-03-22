@@ -12,12 +12,13 @@
         <module>influxdb-common</module>
 
         <module>nenu-user</module>
+        <module>nenu-lab</module>
         <module>sensor-write</module>
         <module>sensor-read</module>
+        <module>sensor-real-read</module>
+        <module>sensor-monitor</module>
 
         <module>nenu-api-gateway</module>
-
-        <module>websocket-server</module>
     </modules>
 
     <packaging>pom</packaging>
