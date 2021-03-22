@@ -9,8 +9,6 @@
     <version>1.0-SNAPSHOT</version>
     <modules>
         <module>nenu-common</module>
-        <module>influxdb-common</module>
-
         <module>nenu-user</module>
         <module>nenu-lab</module>
         <module>sensor-write</module>
@@ -45,11 +43,6 @@
             <dependency>
                 <groupId>cn.xiaoyh</groupId>
                 <artifactId>nenu-common</artifactId>
-                <version>1.0-SNAPSHOT</version>
-            </dependency>
-            <dependency>
-                <groupId>cn.xiaoyh</groupId>
-                <artifactId>influxdb-common</artifactId>
                 <version>1.0-SNAPSHOT</version>
             </dependency>
 

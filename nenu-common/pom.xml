@@ -12,6 +12,17 @@
     <artifactId>nenu-common</artifactId>
 
     <dependencies>
+        <!-- influxdb client -->
+        <dependency>
+            <groupId>org.influxdb</groupId>
+            <artifactId>influxdb-java</artifactId>
+        </dependency>
+        <!-- 自定义属性配置 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-configuration-processor</artifactId>
+            <optional>true</optional>
+        </dependency>
         <!-- Hystrix -->
         <dependency>
             <groupId>org.springframework.cloud</groupId>

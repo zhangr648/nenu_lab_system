@@ -6,6 +6,7 @@ import org.influxdb.InfluxDB;
 import org.influxdb.impl.InfluxDBImpl;
 import org.influxdb.impl.InfluxDBMapper;
 import org.springframework.beans.factory.ObjectProvider;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.boot.autoconfigure.influx.InfluxDbOkHttpClientBuilderProvider;
@@ -38,6 +39,7 @@ public class XInfluxDbConfiguration {
     }
 
     @Bean
+    @ConditionalOnBean({InfluxDB.class})
     public InfluxDBMapper influxDBMapper(InfluxDB influxDB) {
         return new InfluxDBMapper(influxDB);
     }
