@@ -5,6 +5,8 @@ spring:
     batch:
       enable: true
       jitter-duration: 500
+  mqtt:
+    topic: $share/a/sensor
   profiles:
     active: dev
 
@@ -15,7 +17,6 @@ spring:
   profiles: dev
   mqtt:
     url: tcp://192.168.1.10:1883
-    topic: $share/a/sensor
   influx:
     url: http://localhost:8086
 
@@ -24,5 +25,7 @@ spring:
 
 spring:
   profiles: prod
+  mqtt:
+    url: tcp://${MQTT_BROKER_ADDRESS}:1883
   influx:
     url: http://${INFLUXDB_SERVER_ADDRESS}:8086
