@@ -1,10 +1,5 @@
 # 通用配置
-server:
-  port: 8083
-
 spring:
-  application:
-    name: sensor-write
   influx:
     database: nenu_labs
     batch:
@@ -18,11 +13,11 @@ spring:
 
 spring:
   profiles: dev
+  mqtt:
+    url: tcp://192.168.1.10:1883
+    topic: $share/a/sensor
   influx:
     url: http://localhost:8086
-  cloud:
-    consul:
-      enabled: false
 
 ---
 # 生产环境
@@ -31,11 +26,3 @@ spring:
   profiles: prod
   influx:
     url: http://${INFLUXDB_SERVER_ADDRESS}:8086
-  cloud:
-    consul:
-      host: ${CONSUL_SERVER_ADDRESS}
-      port: 8500
-      discovery:
-        prefer-ip-address: true
-        service-name: ${spring.application.name}
-        instance-id: ${spring.application.name}-${spring.cloud.client.ip-address}-${server.port}
