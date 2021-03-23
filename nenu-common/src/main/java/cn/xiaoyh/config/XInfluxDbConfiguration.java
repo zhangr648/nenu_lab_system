@@ -15,7 +15,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
 
-@Configuration(proxyBeanMethods = false)
+@Configuration
 @ConditionalOnClass({InfluxDB.class})
 @EnableConfigurationProperties({XInfluxDbProperties.class})
 public class XInfluxDbConfiguration {

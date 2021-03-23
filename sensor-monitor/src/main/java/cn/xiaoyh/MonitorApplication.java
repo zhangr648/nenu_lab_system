@@ -6,8 +6,6 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.integration.dsl.IntegrationFlow;
 import org.springframework.integration.dsl.IntegrationFlows;
 
-import static cn.xiaoyh.config.MqttConfiguration.CHANNEL_NAME;
-
 @SpringBootApplication
 public class MonitorApplication {
 
@@ -17,7 +15,7 @@ public class MonitorApplication {
 
     @Bean
     public IntegrationFlow mqttHandler() {
-        return IntegrationFlows.from(CHANNEL_NAME)
+        return IntegrationFlows.from("mqttInputChannel")
                 .handle(message -> System.out.println(message.getPayload()))
                 .get();
     }

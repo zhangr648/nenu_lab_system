@@ -14,14 +14,12 @@ import org.springframework.messaging.MessageChannel;
 
 import java.util.Optional;
 
-@Configuration(proxyBeanMethods = false)
+@Configuration
 @EnableConfigurationProperties({MqttProperties.class})
 public class MqttConfiguration {
 
-    public static final String CHANNEL_NAME = "mqttChannel";
-
     @Bean
-    public MessageChannel mqttChannel() {
+    public MessageChannel mqttInputChannel() {
         return MessageChannels.publishSubscribe().get();
     }
 
@@ -39,7 +37,7 @@ public class MqttConfiguration {
         Optional.ofNullable(properties.getCompletionTimeout()).ifPresent(adapter::setCompletionTimeout);
 
         return IntegrationFlows.from(adapter)
-                .channel(CHANNEL_NAME)
+                .channel(mqttInputChannel())
                 .get();
     }
 }
