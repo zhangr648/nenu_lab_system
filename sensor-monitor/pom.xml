@@ -11,9 +11,17 @@
 
     <artifactId>sensor-monitor</artifactId>
 
-    <properties>
-        <maven.compiler.source>8</maven.compiler.source>
-        <maven.compiler.target>8</maven.compiler.target>
-    </properties>
+    <dependencies>
+        <!-- 自己写的模块 -->
+        <dependency>
+            <groupId>cn.xiaoyh</groupId>
+            <artifactId>nenu-common</artifactId>
+        </dependency>
 
+        <!-- springboot web -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+    </dependencies>
 </project>
