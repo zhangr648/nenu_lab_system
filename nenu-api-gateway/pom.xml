@@ -12,6 +12,11 @@
     <artifactId>nenu-api-gateway</artifactId>
 
     <dependencies>
+        <dependency>
+            <groupId>cn.xiaoyh</groupId>
+            <artifactId>nenu-common</artifactId>
+        </dependency>
+
         <!-- Consul -->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
@@ -26,6 +31,21 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-actuator</artifactId>
+        </dependency>
+        <!-- JWT -->
+        <dependency>
+            <groupId>com.auth0</groupId>
+            <artifactId>java-jwt</artifactId>
+        </dependency>
+        <!-- 日志 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-logging</artifactId>
+        </dependency>
+        <!-- lombok -->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
         </dependency>
     </dependencies>
 
