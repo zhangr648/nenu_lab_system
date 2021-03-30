@@ -1,0 +1,45 @@
+# 通用配置
+server:
+  port: 8082
+
+spring:
+  application:
+    name: nenu-lab
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+  profiles:
+    active: dev   # 默认使用 dev，生产环境运行时需加上 --spring.profiles.active=prod
+
+---
+# 开发环境
+
+spring:
+  profiles: dev
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://192.168.1.10:3306/test?useUnicode=true&characterEncoding=utf-8
+    username: root
+    password: 123456
+  cloud:
+    consul:
+      enabled: false
+
+---
+# 生产环境
+
+spring:
+  profiles: prod
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://${MYSQL_SERVER}:3306/nenu_labs?useUnicode=true&characterEncoding=utf-8
+    username: root
+    password: 123456
+  cloud:
+    consul:
+      host: ${CONSUL_SERVER_ADDRESS}
+      port: 8500
+      discovery:
+        prefer-ip-address: true
+        service-name: ${spring.application.name}
+        instance-id: ${spring.application.name}-${spring.cloud.client.ip-address}-${server.port}
