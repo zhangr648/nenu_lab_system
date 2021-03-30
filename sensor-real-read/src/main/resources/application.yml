@@ -3,4 +3,35 @@ server:
 
 spring:
   application:
-    name: websocket-server
+    name: sensor-real-read
+  mqtt:
+    topic: sensor
+  profiles:
+    active: dev
+
+---
+# 开发环境
+
+spring:
+  profiles: dev
+  mqtt:
+    url: tcp://localhost:1883
+  cloud:
+    consul:
+      enabled: false
+
+---
+# 生产环境
+
+spring:
+  profiles: prod
+  mqtt:
+    url: tcp://${MQTT_BROKER_ADDRESS}:1883
+  cloud:
+    consul:
+      host: ${CONSUL_SERVER_ADDRESS}
+      port: 8500
+      discovery:
+        prefer-ip-address: true
+        service-name: ${spring.application.name}
+        instance-id: ${spring.application.name}-${spring.cloud.client.ip-address}-${server.port}

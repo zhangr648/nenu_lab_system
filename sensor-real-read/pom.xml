@@ -12,6 +12,11 @@
     <artifactId>sensor-real-read</artifactId>
 
     <dependencies>
+        <dependency>
+            <groupId>cn.xiaoyh</groupId>
+            <artifactId>nenu-common</artifactId>
+        </dependency>
+
         <!-- Consul -->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
