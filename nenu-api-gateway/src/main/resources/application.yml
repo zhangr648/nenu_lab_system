@@ -5,6 +5,58 @@ spring:
   application:
     name: nenu-api-gateway
   cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+          lower-case-service-id: true
+      globalcors:
+        cors-configurations:
+          '[/**]':
+            allowedOrigins: "*"
+            allowedMethods: "*"
+            allowedHeaders: "*"
+      routes:
+        - id: nenu-user
+          uri: lb://nenu-user
+          predicates:
+            - Path=/nenu-user/**
+          filters:
+            - StripPrefix=1
+        - id: nenu-lab
+          uri: lb://nenu-lab
+          predicates:
+            - Path=/nenu-lab/**
+          filters:
+            - StripPrefix=1
+        - id: sensor-read
+          uri: lb://sensor-read
+          predicates:
+            - Path=/sensor/read/**
+          filters:
+            - StripPrefix=2
+        - id: sensor-real-read
+          uri: lb:ws://sensor-real-read
+          predicates:
+            - Path=/ws/**
+  profiles:
+    active: dev
+
+---
+# 开发环境
+
+spring:
+  profiles: dev
+  cloud:
+    consul:
+      enabled: false
+
+---
+# 生产环境
+
+spring:
+  profiles: prod
+  cloud:
     consul:
       host: ${CONSUL_SERVER_ADDRESS}
       port: 8500
@@ -12,23 +64,3 @@ spring:
         prefer-ip-address: true
         service-name: nenu-api-gateway
         instance-id: ${spring.application.name}-${spring.cloud.client.ip-address}-${server.port}
-    gateway:
-      discovery:
-        locator:
-          enabled: true
-          lower-case-service-id: true
-      routes:
-        - id: sensor-write-route
-          uri: lb://sensor-write
-          predicates:
-            - Path=/sensor/write/**
-        - id: sensor-read-route
-          uri: lb://sensor-read
-          predicates:
-            - Path=/sensor/read/**
-          filters:
-            - StripPrefix=2
-        - id: websocket-route
-          uri: lb:ws://websocket-server
-          predicates:
-            - Path=/ws/**
