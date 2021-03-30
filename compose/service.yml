@@ -1,17 +1,26 @@
 version: '3.4'
 
 services:
-  influxdb:
-    image: influxdb:1.8.4
-    volumes:
-      - influxdb:/var/lib/influxdb
+  nenu-user:
+    image: xiaoyh363/nenu-user
+    environment:
+      - CONSUL_SERVER_ADDRESS=consul
+      - MYSQL_SERVER_ADDRESS=mysql
+    networks:
+      - nenu-overlay
+
+  nenu-lab:
+    image: xiaoyh363/nenu-lab
+    environment:
+      - CONSUL_SERVER_ADDRESS=consul
+      - MYSQL_SERVER_ADDRESS=mysql
     networks:
       - nenu-overlay
 
   sensor-write:
     image: xiaoyh363/sensor-write
     environment:
-      - CONSUL_SERVER_ADDRESS=consul
+      - MQTT_BROKER_ADDRESS=emqx
       - INFLUXDB_SERVER_ADDRESS=influxdb
     deploy:
       replicas: 3
@@ -26,9 +35,15 @@ services:
     networks:
       - nenu-overlay
 
+  sensor-real-read:
+    image: xiaoyh363/sensor-real-read
+    environment:
+      - CONSUL_SERVER_ADDRESS=consul
+      - MQTT_BROKER_ADDRESS=emqx
+    networks:
+      - nenu-overlay
+
 networks:
   nenu-overlay:
     external: true
 
-volumes:
-  influxdb:

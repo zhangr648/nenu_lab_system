@@ -1,0 +1,30 @@
+version: '3.4'
+
+services:
+  influxdb:
+    image: influxdb:1.8.4
+    volumes:
+      - influxdb:/var/lib/influxdb
+    networks:
+      nenu-overlay:
+        aliases:
+          - influxdb
+
+  mysql:
+    image: mysql:5.7.33
+    environment:
+      - MYSQL_ROOT_PASSWORD=123456
+    volumes:
+      - mysql:/var/lib/mysql
+    networks:
+      nenu-overlay:
+        aliases:
+          - influxdb
+
+networks:
+  nenu-overlay:
+    external: true
+
+volumes:
+  influxdb:
+  mysql:

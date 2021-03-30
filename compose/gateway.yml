@@ -15,7 +15,9 @@ services:
       placement:
         constraints: [ node.role ==  manager ]
     networks:
-      - nenu-overlay
+      nenu-overlay:
+        aliases:
+          - emqx
 
   nenu-gateway:
     image: xiaoyh363/nenu-gateway
@@ -24,6 +26,19 @@ services:
     ports:
       - target: 80
         published: 80
+        mode: host
+    deploy:
+      mode: global
+      placement:
+        constraints: [ node.role ==  manager ]
+    networks:
+      - nenu-overlay
+
+  nenu-admin:
+    image: xiaoyh363/nenu-admin
+    ports:
+      - target: 80
+        published: 1000
         mode: host
     deploy:
       mode: global
