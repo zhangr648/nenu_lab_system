@@ -83,7 +83,7 @@
                 <artifactId>jib-maven-plugin</artifactId>
                 <configuration>
                     <to>
-                        <image>${docker.host}/nenu-people</image>
+                        <image>${docker.host}/nenu-user</image>
                     </to>
                 </configuration>
             </plugin>
