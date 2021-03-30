@@ -56,7 +56,7 @@
                 <artifactId>jib-maven-plugin</artifactId>
                 <configuration>
                     <to>
-                        <image>${docker.host}/xiaoyh363/sensor-read</image>
+                        <image>${docker.host}/sensor-read</image>
                     </to>
                 </configuration>
             </plugin>
