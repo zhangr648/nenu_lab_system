@@ -6,8 +6,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
 @MapperScan("cn.xiaoyh.nenu.mapper")
-public class NenuUserApplication {
+public class UserApplication {
     public static void main(String[] args) {
-        SpringApplication.run(NenuUserApplication.class, args);
+        SpringApplication.run(UserApplication.class, args);
     }
 }

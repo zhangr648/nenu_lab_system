@@ -1,6 +1,8 @@
 package cn.xiaoyh.nenu.controller;
 
 
+import cn.xiaoyh.pojo.Result;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import org.springframework.web.bind.annotation.RestController;
@@ -17,5 +19,9 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/nenu/people")
 public class PeopleController {
 
+    @GetMapping("/**")
+    public Result test() {
+        return Result.ok().message("user");
+    }
 }
 
